@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    
+    </head>
+<body>
+    
+    
+    
+    
+    <div id="credit">
+        <h4>Created by <a href="https://www.tiktok.com/@ezfii">@ezfii</a></h4>
+        <div id="links">
+            <a href='https://ko-fi.com/T6T62ZB1Z' target='_blank'>Support Me on Ko-Fi</a>
+            <a href="https://forms.gle/vLtZz9BEtjCrydps9" target='_blank'>Send Feedback</a>
+        </div>
+    </div>
+
+    <div id="container">
+        <h1>D&D NPC Thought Starter Generator (Beta)</h1>
+        <div id="header">
+            <div id="introduction">
+                <p>To start, think about what you need this NPC for. Are they a town guard? The owner of the local tavern? A minion of the villian?</p>
+                <p>Use the options below to choose what to generate, then click the button. Testing 123</p>
+                <button class="secondary" onclick="openModal('content-warnings')">Content Warnings</button>
+            </div>
+
+            <div id="form">
+                <p class="formhelp">What is this NPC for?</p>
+                <p class="caption">This won't affect the output, but writing down what you know will get you in the right mindset.</p>
+                <textarea placeholder=""></textarea>
+
+                <button id="generate" class="primary" onclick="generateCharNew()">Generate</button>
+            </div>
+            
+            
+        
+        </div>
+
+        <div id="results">
+
+
+            <div id="inspiration">
+                
+            
+            </div>
+            
+            <div id="specifics">
+				
+            </div>
+
+            <div id="actions">
+                <button class="secondary" onclick="generateCharNew()">Generate Another</button>
+                <button id="export-text" class="secondary" onclick="exportText()">Export Text</button>
+            </div>
+
+
+            
+
+
+        </div>
+
+        <div id="settings">
+            <div id="already-know">
+                <div class="checkboxes" id="checkbox-container">
+
+                    
+                    
+                </div>
+            </div>
+
+            <div id="weight-settings">
+                
+                
+            </div>
+        </div>
+        
+        
+        
+    </div>
+
+    <div id="text-export-lightbox" class="lightbox">
+        <div class="close" id="close-text-export" onclick="closeModal('text-export-lightbox')">×</div>
+        <h2>Text Export</h2>
+        <p>Copy your NPC from either the formatted or plain text boxes below, and paste wherever you keep character notes.</p>
+        <hr>
+        <div class="export-container">
+            <div>
+                <h3>Formatted</h3>
+                <div id="rtf"></div>
+            </div>
+            <div>
+                <h3>Plain Text</h3>
+                <pre id="plaintext"></pre>
+            </div>
+        </div>
+
+    </div>
+    <div id="lightbox-screen" onclick="closeLightboxes();"></div>
+    
+    
+
+    <div id="content-warnings" class="lightbox">
+        <div class="close" id="close-cw" onclick="closeModal('content-warnings')">×</div>
+        <h2>Content Warnings</h2>
+        <p>The following triggering topics may be mentioned in the following parts of the generator.</p>
+        <hr>
+        <ul>
+            <li><strong>Images of Bugs</strong> (Animals)</li>
+            <li><strong>Images of Spiders</strong> (Animals)</li>
+            <li><strong>Images of Snakes</strong> (Animals)</li>
+            <li><strong>Images of Artistic Nudity</strong> (Tarot)</li>
+            <li><strong>Mentions of Drug Use</strong> (Temptations, Secrets, Mental Conditions)</li>
+            <li><strong>Mentions of Alcohol Use</strong> (Temptations, Secrets, Mental Conditions, Pocket Contents)</li>
+            <li><strong>Mentions of Abusive Relationships</strong> (Goals)</li>
+        </ul>
+
+    </div>
+
+
+    
+    
+    
+    <script type="text/javascript" src="scripts/scripts.js"></script>
+    <script type="text/javascript" src="scripts/export.js"></script>
+    
+    <script type="text/javascript" src="generator-data/generators.js"></script>
+    <script type="text/javascript" src="generator-data/secrets.js"></script>
+    <script type="text/javascript" src="generator-data/goals.js"></script>
+    <script type="text/javascript" src="generator-data/genders.js"></script>
+    <script type="text/javascript" src="generator-data/elements.js"></script>
+    <script type="text/javascript" src="generator-data/races.js"></script>
+    <script type="text/javascript" src="generator-data/animals.js"></script>
+    <script type="text/javascript" src="generator-data/orientations.js"></script>
+    <script type="text/javascript" src="generator-data/disabilities.js"></script>
+    <script type="text/javascript" src="generator-data/features.js"></script>
+    <script type="text/javascript" src="generator-data/cultures.js"></script>
+    <script type="text/javascript" src="generator-data/enneagram.js"></script>
+	<script type="text/javascript" src="generator-data/charclasses.js"></script>
+	<script type="text/javascript" src="generator-data/names.js"></script>
+    <script type="text/javascript" src="generator-data/build.js"></script>
+    <script type="text/javascript" src="generator-data/pocketcontents.js"></script>
+    <script type="text/javascript" src="generator-data/tools.js"></script>
+    <script type="text/javascript" src="generator-data/voices.js"></script>
+    <script type="text/javascript" src="generator-data/religions.js"></script>
+    <script type="text/javascript" src="generator-data/personality.js"></script>
+    <script type="text/javascript" src="generator-data/mentalconditions.js"></script>
+    <script type="text/javascript" src="generator-data/tarot.js"></script>
+
+<script>
+    
+    // On load
+    
+
+    
+</script>
+
+</body>
+    </html>
