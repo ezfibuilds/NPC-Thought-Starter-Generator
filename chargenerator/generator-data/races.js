@@ -41,11 +41,31 @@ const races = [
     {
         "name":"dragonborn",
         "description":"",
-        "variations":['black','blue','brass','bronze','copper','gold','green','red','silver','white'],
+        "variations":['black','blue','green','red','white'],
+        "weight": {
+            "phb":"10",
+            "equal":"1",
+            "tervios":"0"
+        }
+    },
+    {
+        "name":"dragonborn",
+        "description":"",
+        "variations":['brass','bronze','copper','gold','silver'],
         "weight": {
             "phb":"10",
             "equal":"1",
             "tervios":"100"
+        }
+    },
+    {
+        "name":"dragonborn",
+        "description":"",
+        "variations":['amethyst','crystal','emerald','sapphire','topaz'],
+        "weight": {
+            "phb":"1",
+            "equal":"1",
+            "tervios":"1"
         }
     },
     {
@@ -100,7 +120,7 @@ const races = [
 {
     "name":"elf",
     "description":"",
-    "variations":['sea','shadar-kai'],
+    "variations":['sea','shadar-kai','eladrin'],
     "weight": {
         "phb":"1",
         "equal":"1",
@@ -330,6 +350,87 @@ const races = [
     },
     {
         "name":"hexblood",
+        "description":"",
+        "weight": {
+            "phb":"1",
+            "equal":"1",
+            "tervios":"0"
+        }
+    },
+    {
+        "name":"centaur",
+        "description":"",
+        "weight": {
+            "phb":"1",
+            "equal":"1",
+            "tervios":"0"
+        }
+    },
+    {
+        "name":"changeling",
+        "description":"",
+        "weight": {
+            "phb":"1",
+            "equal":"1",
+            "tervios":"0"
+        }
+    },
+    {
+        "name":"fairy",
+        "description":"",
+        "weight": {
+            "phb":"1",
+            "equal":"1",
+            "tervios":"0"
+        }
+    },
+    {
+        "name":"harengon",
+        "description":"",
+        "weight": {
+            "phb":"1",
+            "equal":"1",
+            "tervios":"0"
+        }
+    },
+    {
+        "name":"leonin",
+        "description":"",
+        "weight": {
+            "phb":"1",
+            "equal":"1",
+            "tervios":"0"
+        }
+    },
+    {
+        "name":"loxodon",
+        "description":"",
+        "weight": {
+            "phb":"1",
+            "equal":"1",
+            "tervios":"0"
+        }
+    },
+    {
+        "name":"minotaur",
+        "description":"",
+        "weight": {
+            "phb":"1",
+            "equal":"1",
+            "tervios":"0"
+        }
+    },
+    {
+        "name":"owlin",
+        "description":"",
+        "weight": {
+            "phb":"1",
+            "equal":"1",
+            "tervios":"0"
+        }
+    },
+    {
+        "name":"satyr",
         "description":"",
         "weight": {
             "phb":"1",
