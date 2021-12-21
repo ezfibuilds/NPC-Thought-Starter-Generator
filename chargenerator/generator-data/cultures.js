@@ -1,7 +1,6 @@
 const cultures = [
     {
         'name':'Majority local culture',
-        'description':'The most populous cultural group native to the area the NPC is currently residing in. Likely to be the ones running the area, unless they were conquered or colonized.',
         'weight':{
             'isolated':90,
             'average':75,
@@ -11,7 +10,6 @@ const cultures = [
     },
     {
         'name':'Minority local culture',
-        'description':'A minority cultural group native to the general area the NPC is currently residing in.',
         'weight':{
             'isolated':10,
             'average':20,

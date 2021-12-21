@@ -1,4 +1,4 @@
-document.getElementById("close-text-export").addEventListener("click", closeModal("text-export-lightbox"));
+document.getElementById("close-text-export").addEventListener("click", () => {closeModal("text-export-lightbox")});
 //document.getElementById("export-text").addEventListener("click", exportText());
 
 function closeModal(lightbox) {
@@ -75,4 +75,25 @@ function exportText() {
     document.getElementById("plaintext").textContent = plain.trim();
     openModal("text-export-lightbox");
     // Show lightbox
+}
+
+
+/// COPY AND PASTE
+
+document.getElementById("copy-rtf").addEventListener('click', () => {autoCopy("rtf")});
+document.getElementById("copy-plaintext").addEventListener('click', () => {autoCopy("plaintext")});
+
+function autoCopy(divId) {
+    let textToCopy = document.getElementById(divId);
+    let alert = document.getElementById("alert-" + divId);
+    window.getSelection().selectAllChildren(textToCopy);
+    document.execCommand("copy");
+    if (window.getSelection) {window.getSelection().removeAllRanges();}
+    else if (document.selection) {document.selection.empty();}
+    alert.classList.add("show");
+    alert.classList.remove("hide");
+    setTimeout(() => {
+        alert.classList.add("hide");
+        alert.classList.remove("show");
+    },5000)
 }

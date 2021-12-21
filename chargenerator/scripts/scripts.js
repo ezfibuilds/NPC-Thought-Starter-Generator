@@ -98,7 +98,8 @@ let optionsList = [];
             if (e["has-div"]) {
                 inspoHTML += `<div id="${e["div-class"]}"></div>`
             }
-            inspoHTML += `<button class="small-reroll" id="${pre}-reroll"></button>
+            inspoHTML += `<p class='attribution' id='${pre}-attribution'></p>
+                            <button class="small-reroll" id="${pre}-reroll"></button>
                             </div>` 
         });
         document.getElementById('inspiration').innerHTML = inspoHTML;
@@ -492,7 +493,7 @@ function randomName() {
     let nameroot = randomFromArray(namerootsMine)
     currentName = nameroot;
     document.getElementById("nameroot").textContent = nameroot;
-    document.getElementById("mascname").textContent = genderize(nameroot, mascSuffixes);
+    document.getElementById("mascname").textContent = genderize(nameroot, mascSuffixesMine);
     document.getElementById("femname").textContent = genderize(nameroot, femSuffixesMine);
 }
 
@@ -513,18 +514,35 @@ function genderize(root, suffixesList) {
 
 // Regenerate a masculine suffix for the current name root.
 function reMasc() {
-    newGenderSuffix("mascname", mascSuffixes);
+    newGenderSuffix("mascname", mascSuffixesMine);
 }
 
 // Regenerate a feminine suffix for the current name root.
 function reFem() {
-    newGenderSuffix("femname", femSuffixes);
+    newGenderSuffix("femname", femSuffixesMine);
 }
 
 // Regenerate a suffix for the current name root.
 function newGenderSuffix(targetid, suffixesList) {
     let nameroot = currentName;
     document.getElementById(targetid).textContent = genderize(nameroot, suffixesList);
+}
+
+
+
+// Generates a random hometown by combining a prefix and suffix.
+
+function randomHometown() {
+    if (!checkToGenerate("hometown")) {
+        return;
+    }
+    let prefix = randomFromArray(hometownPrefixes);
+    let suffix = randomFromArray(hometownSuffixes);
+    // Prevent triple letters
+    if (prefix[prefix.length - 1] == suffix[0] && prefix[prefix.length - 1] == prefix[prefix.length - 2]) {
+        suffix = suffix.substring(1);
+    }
+    document.getElementById("hometown").textContent = titleCase(prefix + suffix);
 }
 
 
@@ -1040,94 +1058,6 @@ function randomPocket() {
 
 
 
-    
-
-// UNSORTED
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Random ability score: 
-- Best and Worst
-- Highest to Lowest
-- Relative to Expected Stats
-- Rolled, commoner (10 +/- (1d6 - 1))
-- Rolled, adventurer (3d8)
-- Rolled, heroic (4d8 drop lowest)
-*/
-
-
-
-
-
-
-// Generate a Character
-
-function generateChar() {
-    // Show results area
-    document.getElementById("results").classList.add('show');
-
-    // Generate Inspiration
-    randomAnimal();
-    randomElement();
-    randomColor();
-
-    // Name
-    randomName();
-
-    // Demographics
-    randomOrientation();
-    randomGender();
-    randomRace();
-    randomDisability();
-    randomEthnicity();
-
-    //Description
-    randomAge();
-    randomAppearance();
-    randomHeight();
-    randomBuild();
-    randomClothing();
-
-    //Psychology
-    randomValue();
-    randomGoal();
-    randomSecret();
-    randomEnneagram();
-    randomMBTI();
-    randomBigFive();
-    randomMood();
-    
-    // Stats
-    randomAbilityScores();
-    randomBackground();
-    randomClass();
-    randomLevel();
-    randomWeapon();
-    
-    // Belongings
-    randomWealth();
-    randomPocket();
-}
-
-
 
 function showHideOptions(keyword) {
     let checkbox = document.getElementById(keyword + "-check");
@@ -1143,111 +1073,3 @@ function showHideOptions(keyword) {
 
 
 document.getElementById("generate").addEventListener("click", generateCharNew);
-/*
-// Inspiration
-document.getElementById("animal-reroll").addEventListener("click", randomAnimal);
-document.getElementById("element-reroll").addEventListener("click", randomElement);
-document.getElementById("color-reroll").addEventListener("click", randomColor);
-
-// Names
-document.getElementById("nameroot-reroll").addEventListener("click", randomName);
-document.getElementById("mascname-reroll").addEventListener("click", reMasc);
-document.getElementById("femname-reroll").addEventListener("click", reFem);
-
-// Demographics
-document.getElementById("race-reroll").addEventListener("click", randomRace);
-document.getElementById("gender-reroll").addEventListener("click", randomGender);
-document.getElementById("orientation-reroll").addEventListener("click", randomOrientation);
-document.getElementById("disability-reroll").addEventListener("click", randomDisability);
-document.getElementById("ethnicity-reroll").addEventListener("click", randomEthnicity);
-
-// Description
-document.getElementById("appearance-reroll").addEventListener("click", randomAppearance);
-document.getElementById("age-reroll").addEventListener("click", randomAge);
-document.getElementById("height-reroll").addEventListener("click", randomHeight);
-document.getElementById("build-reroll").addEventListener("click", randomBuild);
-document.getElementById("clothing-reroll").addEventListener("click", randomClothing);
-
-// Stats
-document.getElementById("charclass-reroll").addEventListener("click", randomClass);
-document.getElementById("level-reroll").addEventListener("click", randomLevel);
-document.getElementById("background-reroll").addEventListener("click", randomBackground);
-document.getElementById("weapon-reroll").addEventListener("click", randomWeapon);
-document.getElementById("ability-reroll").addEventListener("click", randomAbilityScores);
-
-// Psychology
-document.getElementById("value-reroll").addEventListener("click", randomValue);
-document.getElementById("goal-reroll").addEventListener("click", randomGoal);
-document.getElementById("secret-reroll").addEventListener("click", randomSecret);
-document.getElementById("enne-reroll").addEventListener("click", randomEnneagram);
-document.getElementById("mbti-reroll").addEventListener("click", randomMBTI);
-document.getElementById("bigfive-reroll").addEventListener("click", randomBigFive);
-document.getElementById("mood-reroll").addEventListener("click", randomMood);
-
-// Belongings
-document.getElementById("wealth-reroll").addEventListener("click", randomWealth);
-document.getElementById("pocket-reroll").addEventListener("click", randomPocket);
-*/
-
-
-
-
-
-
-
-/*
-// Race Option Event Listeners
-document.getElementById("race-prob").addEventListener("change", () => {
-    racemode = document.getElementById("race-prob").value;
-});
-
-document.getElementById("race-check").addEventListener("change", () => {
-    showHideOptions("race");
-});
-
-
-// Gender Option Event Listeners
-document.getElementById("gender-prob").addEventListener("change", () => {
-    gendermode = document.getElementById("gender-prob").value;
-});
-
-document.getElementById("gender-check").addEventListener("change", () => {
-    showHideOptions("gender");
-});
-
-// Orientation Option Event Listeners
-document.getElementById("orientation-prob").addEventListener("change", () => {
-    orientationmode = document.getElementById("orientation-prob").value;
-});
-
-document.getElementById("orientation-check").addEventListener("change", () => {
-    showHideOptions("orientation");
-});
-
-// Culture Option Event Listeners
-document.getElementById("ethnicity-prob").addEventListener("change", () => {
-    ethnicitymode = document.getElementById("ethnicity-prob").value;
-});
-
-// Class Option Event Listeners
-document.getElementById("class-prob").addEventListener("change", () => {
-    classmode = document.getElementById("class-prob").value;
-});
-
-// Build Option Event Listeners
-document.getElementById("build-prob").addEventListener("change", () => {
-    buildmode = document.getElementById("build-prob").value;
-});
-
-// Enneagram Option Event Listeners
-document.getElementById("enne-prob").addEventListener("change", () => {
-    ennemode = document.getElementById("enne-prob").value;
-});
-
-// Ability Score Option Event Listeners
-document.getElementById("ability-prob").addEventListener("change", () => {
-    abilitymode = document.getElementById("ability-prob").value;
-});
-
-
-*/

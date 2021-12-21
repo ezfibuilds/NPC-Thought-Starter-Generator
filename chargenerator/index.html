@@ -27,7 +27,7 @@
         <div id="header">
             <div id="introduction">
                 <p>To start, think about what you need this NPC for. Are they a town guard? The owner of the local tavern? A minion of the villian?</p>
-                <p>Use the options below to choose what to generate, then click the button. Testing 123</p>
+                <p>Use the options below to choose what to generate, then click the button.</p>
                 <button class="secondary" onclick="openModal('content-warnings')">Content Warnings</button>
             </div>
 
@@ -85,6 +85,11 @@
         
     </div>
 
+
+    <p id="bottom-credit">&copy; @ezfii. Under the MIT License. <span id="attributions-link" onclick="openModal('attributions')">Attributions</span></p>
+
+
+
     <div id="text-export-lightbox" class="lightbox">
         <div class="close" id="close-text-export" onclick="closeModal('text-export-lightbox')">×</div>
         <h2>Text Export</h2>
@@ -94,10 +99,14 @@
             <div>
                 <h3>Formatted</h3>
                 <div id="rtf"></div>
+                <button id="copy-rtf" class='secondary'>Copy to Clipboard</button>
+                <div id="alert-rtf" class="copy-alert hide">Copied!</div>
             </div>
             <div>
                 <h3>Plain Text</h3>
                 <pre id="plaintext"></pre>
+                <button id="copy-plaintext" class="secondary">Copy to Clipboard</button>
+                <div id="alert-plaintext" class="copy-alert hide">Copied!</div>
             </div>
         </div>
 
@@ -120,6 +129,14 @@
             <li><strong>Mentions of Alcohol Use</strong> (Temptations, Secrets, Mental Conditions, Pocket Contents)</li>
             <li><strong>Mentions of Abusive Relationships</strong> (Goals)</li>
         </ul>
+
+    </div>
+
+    <div id="attributions" class="lightbox">
+        <div class="close" id="close-cw" onclick="closeModal('attributions')">×</div>
+        <h2>Attributions</h2>
+        <p>Names in the first name generator are from the <a href="http://eakett.ca/sgnp/" target="_blank">Story Games Names Project</a> (Creative Commons Attribution-NonCommercial-ShareAlike 2.5 Generic License).
+        <br><br>Animal images taken from Wikipedia, and are all under a Creative Commons license or are public domain. <a href="attributions.html" target="_blank">View All Attributions</a></p>
 
     </div>
 
@@ -152,6 +169,7 @@
     <script type="text/javascript" src="generator-data/personality.js"></script>
     <script type="text/javascript" src="generator-data/mentalconditions.js"></script>
     <script type="text/javascript" src="generator-data/tarot.js"></script>
+    <script type="text/javascript" src="generator-data/hometown.js"></script>
 
 <script>
     

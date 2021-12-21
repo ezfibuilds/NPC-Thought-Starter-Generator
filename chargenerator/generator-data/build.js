@@ -1,7 +1,6 @@
 const builds = [
     {
         "name":"Somewhat thin",
-        "variations":[''],
         "weight": {
             "foodscarce":"15",
             "average":"10",
@@ -10,7 +9,6 @@ const builds = [
     },
     {
         "name":"Thin",
-        "variations":[''],
         "weight": {
             "foodscarce":"10",
             "average":"10",
@@ -19,7 +17,6 @@ const builds = [
     },
     {
         "name":"Exceptionally thin",
-        "variations":[''],
         "weight": {
             "foodscarce":"7",
             "average":"5",
@@ -28,7 +25,6 @@ const builds = [
     },
     {
         "name":"Somewhat fat",
-        //"variations":['','weight focused in chest & arms','weight focused in midsection','weight focused in hips & legs'],
         "weight": {
             "foodscarce":"5",
             "average":"10",
@@ -37,7 +33,6 @@ const builds = [
     },
     {
         "name":"Fat",
-        //"variations":['','carries weight in chest & arms','carries weight in midsection','carries weight in hips & legs'],
         "weight": {
             "foodscarce":"5",
             "average":"10",
@@ -46,7 +41,6 @@ const builds = [
     },
     {
         "name":"Exceptionally fat",
-        //"variations":['','carries weight in chest & arms','carries weight in midsection','carries weight in hips & legs'],
         "weight": {
             "foodscarce":"3",
             "average":"5",
@@ -55,7 +49,6 @@ const builds = [
     },
     {
         "name":"Somewhat muscular",
-        //"variations":['','toned','bulky','bulky and toned'],
         "weight": {
             "foodscarce":"5",
             "average":"10",
@@ -64,7 +57,6 @@ const builds = [
     },
     {
         "name":"Muscular",
-        //"variations":['','toned','bulky','bulky and toned'],
         "weight": {
             "foodscarce":"5",
             "average":"10",
@@ -73,7 +65,6 @@ const builds = [
     },
     {
         "name":"Exceptionally muscular",
-        //"variations":['','toned','bulky','bulky and toned'],
         "weight": {
             "foodscarce":"3",
             "average":"5",

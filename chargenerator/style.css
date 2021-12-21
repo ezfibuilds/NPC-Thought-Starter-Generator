@@ -84,6 +84,10 @@
         margin-top:20px;
     }
 
+    #header {
+        margin-bottom:2em;
+    }
+
     #introduction p {
         margin-bottom: 0.5em;
     }
@@ -484,6 +488,32 @@
         white-space: pre-wrap;
     }
 
+    .copy-alert {
+        display:inline-block;
+        font-size:0.8em;
+        opacity:1;
+    }
+
+    .copy-alert.hide {
+        opacity:0;
+        transition:opacity 0.5s;
+    }
+
+
+
+    #bottom-credit {
+        font-size:0.8em;
+        text-align:center;
+        margin-bottom:1em;
+    }
+
+    #attributions-link {
+        color:#34ba58;
+        cursor:pointer;
+    }
+
+
+
 }
 
 
@@ -507,6 +537,7 @@
         display:grid;
         grid-template-columns: 1fr 1fr;
         gap:50px;
+        margin-bottom:0;
     }
 
     h1 {

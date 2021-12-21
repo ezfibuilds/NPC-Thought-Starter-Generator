@@ -1,14 +1,19 @@
-const oldAppearance = [
-    'Hair (color, style, facial hair, etc.)',
-    'Ears',
-    'Eyes',
-    'Nose',
-    'Mouth (lips, teeth, etc.)',
-    'Face shape (jaw, cheeks, forehead, etc.)',
-    'Skin (color, freckles, blemishes, scars, etc.)',
-    'Body part (arms, legs, hands, etc.)',
-    'Posture, gait, or mannerisms',
-];
+/* A catch-all file of simple generator arrays. includes:
+
+- Distinctive Feature
+- Clothing
+- Background
+- Values
+- Tempatations
+- Height
+- Age
+- Wealth
+- Power Level
+- Ability Scores
+- Moods
+- Weapons
+
+*/
 
 const appearance = [
     'Hair color',

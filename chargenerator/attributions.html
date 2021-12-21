@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        body {
+            margin:20px;
+        }
+
+        h1 {
+            text-align:center;
+        }
+
+        #attributions {
+            max-width:1000px;
+            margin:0 auto;
+        }
+
+        .attr {
+            margin-bottom:1em;
+        }
+    </style>
+    </head>
+<body>
+
+
+    <h1>Animal Image Attributions</h1>
+    <div id="attributions"></div>
+
+
+
+    <script type="text/javascript" src="generator-data/animals.js"></script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+    let output = ""
+    animals.forEach(e => {
+        let name = e.name;
+        let attribution = e.attribution;
+        output += `<p class="attr"><strong>${name}:</strong> ${attribution}</p>`
+    })
+    document.getElementById("attributions").innerHTML = output;
+});
+
+</script>
+
+    </body>
+    </html>

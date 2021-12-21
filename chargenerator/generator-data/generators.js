@@ -3,7 +3,6 @@ const generators = [
         "name":"Animal",
         "prefix":"animal",
         "category":"inspiration",
-        "explanation":"A random animal to inspire their personality, appearance, or symbolic role in the story.",
         "has-p":false,
         "has-div":true,
         "div-class":"animal-image",
@@ -15,7 +14,6 @@ const generators = [
         "name":"Element",
         "prefix":"element",
         "category":"inspiration",
-        "explanation":"Gives an element or element-like concept, plus a related word, to associate with the character literally or figuratively.",
         "has-p":true,
         "has-div":false,
         "p-class":"element-description",
@@ -28,7 +26,6 @@ const generators = [
         "name":"Color",
         "prefix":"color",
         "category":"inspiration",
-        "explanation":"Gives a hex code and a color swatch. Could be taken literally as part of their color scheme, or could be metaphorical in their personality.",
         "has-p":false,
         "has-div":true,
         "div-class":"color-swatch",
@@ -52,7 +49,6 @@ const generators = [
         "name":"First Name",
         "prefix":"nameroot",
         "category":"names",
-        "explanation":"Gives a first name, and a masculine and feminine version of that name. Names taken from the Story Games Name Project.",
         "function":randomName,
         "default":true,
         "includes-settings":false,
@@ -67,11 +63,19 @@ const generators = [
                 "function":reFem,
             },
         ]
-    },{
+    },
+    {
+        "name":"Hometown",
+        "prefix":"hometown",
+        "category":"names",
+        "explanation":"",
+        "function":randomHometown,
+        "includes-settings":false
+    },
+    {
         "name":"Race",
         "prefix":"race",
         "category":"demographics",
-        "explanation":"Gives a D&D race, such as human, elf, or dwarf, along with a subrace.",
         "function":randomRace,
         "default":true,
         "includes-settings":true,
@@ -96,7 +100,6 @@ const generators = [
         "name":"Gender",
         "prefix":"gender",
         "category":"demographics",
-        "explanation":"Gives a gender identity for the character.",
         "function":randomGender,
         "default":true,
         "includes-settings":true,
@@ -145,10 +148,6 @@ const generators = [
                 "name":"Max Representation",
                 "code":"maxrep",
                 "description":"Even chances for all identities, but heterosexual is excluded."
-            },{
-                "name":"Tervios",
-                "code":"tervios",
-                "description":"For @ezfii's homebrew campaign setting, Tervios. Bi/pan is the statistical majority."
             }
         ]
     },{
