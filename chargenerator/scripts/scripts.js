@@ -423,17 +423,6 @@ let randomAnimal = () => {
     document.getElementById("animal-image").innerHTML = `<img alt='${ani[0]}' src='images/animals/${ani[3]}'>`;
 }
 
-
-// Random Archetype. Depricated until I get a better list of archetypes.
-function randomArchetype() {
-    if (!checkToGenerate("archetype")) {
-        return;
-    }
-    let ani = randomItemWithDesc(archetypes);
-    document.getElementById("archetype").textContent = ani[0]; //Name
-    document.getElementById("archetype-description").textContent = ani[1]; //Description
-}
-
 // Random element. Generates an element and a sub-element variation.
 function randomElement() {
     if (!checkToGenerate("element")) {

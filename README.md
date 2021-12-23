@@ -59,3 +59,44 @@ When you're happy with the NPC generated, you can click on Export Text to see re
 
 | Name | Description |
 |:----:|:----|
+| Core Value | A fundamental value that is important to the character. Can be used when deciding their motivations and how they respond to attempts at persuasion. |
+| Temptation | Something that the character just can't resist, whether it's a self-destructive vice or a harmless quirk. Can be used by players when manipulating the NPC. |
+| Goals | Gives something the NPC is trying to accomplish. Can be used for plot hooks. |
+| Secret | Gives a secret that the NPC is keeping. Can be used for plot hooks. |
+| Personality | Describes the NPC's personality. Settings let you choose what system is used: trait words, Big 5, MBTI, Enneagram, or Astrology. |
+| Mental Condition | Has a 10% chance of giving a mental illness or neurodivergency. |
+
+### Game Stats
+
+| Name | Description |
+|:----:|:----|
+| Background | Gives a D&D background, such as Acolyte, Criminal, or Entertainer. |
+| Class | Gives a class and subclass. Settings can be used to determine what types of classes are more common.|
+| Power Level | Describes how powerful they are relative to what you would expect for someone in their position. Can be used when planning how difficult an encounter with them should be. |
+| Tool Proficiency | Gives a tool proficiency for them to have. |
+| Weapon | Gives a preferred weapon. If a class is generated, it will account for class proficiencies. |
+| Ability Scores | Generates ability scores. Settings give multiple ways to generate the scores. |
+
+
+### When You Meeting Them
+
+| Name | Description |
+|:----:|:----|
+| Current Mood | The mood the character is in when the party first runs into them, as a jumping off point for roleplaying them. |
+| Pocket Contents | What is in their pockets or bags for players to pickpocket or loot. Settings can adjust whether players might find plot relevant items on them. |
+
+
+## Future Features
+
+In the future, I will continue to add features and improve this generator. Currently planned features include:
+
+* Presets for generator settings for different types of characters
+* Improved name bank for first name generator
+* An API
+* The ability to save your settings for your next visit
+
+I am a novice programmer, so some of these will take a long time. 
+
+If you have additional suggestions, feel free to send them to me using this [this google form](https://docs.google.com/forms/d/e/1FAIpQLSdwDbr0vjJDS6aMUmk4Jcw_-_C-swcSSmqRlNtFScJoNjAflQ/viewform). 
+
+Some features may not be feasible until I can host this on a dedicated website with a server instead of github. If you want to help me work towards this goal, you can [support me on Ko-Fi](https://ko-fi.com/ezfii).
