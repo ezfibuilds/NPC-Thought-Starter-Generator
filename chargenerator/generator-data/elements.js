@@ -37,6 +37,6 @@ const elements = [
     },
     {
         "name":"darkness",
-        "variations":['shadow','night','cave','secret','void','blindness','dusk','shade','space','depth','cloak','black']
+        "variations":['shadow','night','cave','secret','void','nothingness','dusk','shade','space','depth','cloak','black','unholy']
     }
 ]

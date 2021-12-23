@@ -93,7 +93,7 @@ const generators = [
             {
                 "name":"Tervios",
                 "code":"tervios",
-                "description":"For @ezfii's homebrew campaign setting, Tervios."
+                "description":"For @ezfii's homebrew campaign setting, Tervios. Mostly player's handbook races. No animal-like races besides dragonborn."
             }
         ]
     },{
@@ -144,6 +144,10 @@ const generators = [
                 "name":"Equal Chances",
                 "code":"equal",
                 "description":"Even chances for all identities."
+            },{
+                "name":"Majority Bi/Pan",
+                "code":"bipan",
+                "description":"Bisexuality and pansexuality are most likely; aka the Uniquenameosaurus method."
             },{
                 "name":"Max Representation",
                 "code":"maxrep",

@@ -402,5 +402,41 @@ const goals = [
   {
     "name": "To free themselves from something restricting them.",
     "": ""
+  },
+  {
+    "name": "To repay someone who did them a great favor.",
+    "": ""
+  },
+  {
+    "name": "To fulfill a prophecy.",
+    "": ""
+  },
+  {
+    "name": "To have a text they can't read translated.",
+    "": ""
+  },
+  {
+    "name": "To spread a rumor about someone.",
+    "": ""
+  },
+  {
+    "name": "To prove a rumor about them wrong.",
+    "": ""
+  },
+  {
+    "name": "To learn forbidden knowledge.",
+    "": ""
+  },
+  {
+    "name": "To restore their honor.",
+    "": ""
+  },
+  {
+    "name": "To pay a life debt.",
+    "": ""
+  },
+  {
+    "name": "To carry out orders from their superiors.",
+    "": ""
   }
 ]

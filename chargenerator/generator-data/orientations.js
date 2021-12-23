@@ -6,7 +6,7 @@ const orientations = [
             "statplus":80,
             "equal":1,
             "maxrep":0,
-            "tervios":2
+            "bipan":2
         }
     },
     {
@@ -16,7 +16,7 @@ const orientations = [
             "statplus":5,
             "equal":1,
             "maxrep":25,
-            "tervios":2
+            "bipan":2
         }
     },
     {
@@ -26,7 +26,7 @@ const orientations = [
             "statplus":5,
             "equal":1,
             "maxrep":25,
-            "tervios":47
+            "bipan":47
         },
         "variations":['','','','','','slight male preference','slight female preference','strong male preference','strong female preference']
     },
@@ -37,7 +37,7 @@ const orientations = [
             "statplus":5,
             "equal":1,
             "maxrep":25,
-            "tervios":47
+            "bipan":47
         }
     },
     {
@@ -47,7 +47,7 @@ const orientations = [
             "statplus":5,
             "equal":1,
             "maxrep":25,
-            "tervios":2
+            "bipan":2
         },
         "variations":['heteroromantic','homoromantic','biromantic','panromantic','aromantic','demisexual']
     }
