@@ -196,7 +196,7 @@ const goals = [
     "": ""
   },
   {
-    "name": "To win back an old flame.",
+    "name": "To win back their ex.",
     "": ""
   },
   {
@@ -437,6 +437,10 @@ const goals = [
   },
   {
     "name": "To carry out orders from their superiors.",
+    "": ""
+  },
+  {
+    "name": "To celebrate a holiday.",
     "": ""
   }
 ]
