@@ -50,6 +50,10 @@ function exportText() {
 
     // Format into a text box
     let rtf = "";
+    let prompt = document.getElementById("prompt").value;
+    if (prompt != "") {
+        rtf += `<div><h4>PROMPT</h4><div>${prompt}</div></div><br>`
+    }
     for (const [key, value] of Object.entries(toGen)) {
         rtf += `<div><h4>${key.replace(/-/g," ").toUpperCase()}</h4>`
         value.forEach(e => {
@@ -61,6 +65,9 @@ function exportText() {
 
     // Format plain text
     let plain = "";
+    if (prompt != "") {
+        plain += `PROMPT\n${prompt}\n\n`
+    }
     for (const [key, value] of Object.entries(toGen)) {
         plain += `${key.replace(/-/g," ").toUpperCase()} \n`
         value.forEach(e => {
