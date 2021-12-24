@@ -1,4 +1,6 @@
 # NPC Thought Starter Generator
+
+[Try the Generator](https://ezfibuilds.github.io/NPC-Thought-Starter-Generator/)
  
 A D&D NPC Generator created by tiktok user @ezfii. 
 

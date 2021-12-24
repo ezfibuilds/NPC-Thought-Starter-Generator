@@ -507,9 +507,10 @@
         margin-bottom:1em;
     }
 
-    #attributions-link {
+    #attributions-link, #bottom-credit a {
         color:#34ba58;
         cursor:pointer;
+        text-decoration:none;
     }
 
 
