@@ -160,7 +160,32 @@ const generators = [
         "category":"demographics",
         "function":randomDisability,
         "default":true,
-        "includes-settings":false
+        "includes-settings":true,
+        "settings-label":"Chance of Disability",
+        "settings-options": [
+            {
+                "name":"10%",
+                "code":"10",
+                "description":"There will be a 1 in 10 chance that the NPC will have a disability."
+            },
+            {
+                "name":"25%",
+                "code":"25",
+                "description":"There will be a 1 in 4 chance that the NPC will have a disability."
+            },{
+                "name":"50%",
+                "code":"50",
+                "description":"There will be a 50/50 chance that the npc will have a disability."
+            },{
+                "name":"75%",
+                "code":"75",
+                "description":"There will be a 3 in 4 chance that the npc will have a disability."
+            },{
+                "name":"100%",
+                "code":"100",
+                "description":"The NPC will always be generated with a disability."
+            }
+        ]
     },{
         "name":"Culture",
         "prefix":"culture",
@@ -171,13 +196,13 @@ const generators = [
         "settings-label":"Cultural Diversity",
         "settings-options": [
             {
-                "name":"Isolated",
-                "code":"isolated",
-                "description":"For areas without much cultural diversity, like tiny villages"
-            },{
                 "name":"Average",
                 "code":"average",
                 "description":"For areas with an average amount of cultural diversity."
+            },{
+                "name":"Isolated",
+                "code":"isolated",
+                "description":"For areas without much cultural diversity, like tiny villages"
             },{
                 "name":"Multicultural",
                 "code":"multicultural",
@@ -384,14 +409,91 @@ const generators = [
         "category":"psychology",
         "function":randomMentalCondition,
         "default":false,
-        "includes-settings":false
+        "includes-settings":true,
+        "settings-label":"Chance of Mental Condition",
+        "settings-options": [
+            {
+                "name":"10%",
+                "code":"10",
+                "description":"There will be a 1 in 10 chance that the NPC will have a mental condition."
+            },
+            {
+                "name":"25%",
+                "code":"25",
+                "description":"There will be a 1 in 4 chance that the NPC will have a mental condition."
+            },{
+                "name":"50%",
+                "code":"50",
+                "description":"There will be a 50/50 chance that the npc will have a mental condition."
+            },{
+                "name":"75%",
+                "code":"75",
+                "description":"There will be a 3 in 4 chance that the npc will have a mental condition."
+            },{
+                "name":"100%",
+                "code":"100",
+                "description":"The NPC will always be generated with a mental condition."
+            }
+        ]
     },{
         "name":"Background",
         "prefix":"background",
         "category":"game-stats",
         "function":randomBackground,
         "default":false,
-        "includes-settings":false
+        "includes-settings":true,
+        "settings-label":"Background/Profession",
+        "settings-options": [
+            {
+                "name":"Player's Handbook",
+                "code":"pbh",
+                "description":"Only player backgrounds from the Player's Handbook."
+            },
+            {
+                "name":"Expanded Backgrounds",
+                "code":"expanded",
+                "description":"Backgrounds from the Player's Handbook plus other sources, such as Sword Coast Adventurer's Guide. Limited to general backgrounds that should work in any typical medieval fantasy setting."
+            },
+            {
+                "name":"Ravnica",
+                "code":"ravnica",
+                "description":"Backgrounds from the Players Handbook plus the Guildmaster's Guide to Ravnica."
+            },
+            {
+                "name":"Wildemount",
+                "code":"wildemount",
+                "description":"Backgrounds from the Players Handbook plus the Explorer's Guide to Wildemount."
+            },
+            {
+                "name":"Strixhaven",
+                "code":"strixhaven",
+                "description":"Backgrounds from the Players Handbook plus Strixhaven: Curriculum of Chaos."
+            },
+            {
+                "name":"NPC Professions",
+                "code":"professions",
+                "description":"Generates a medieval profession, rather than a player background."
+            },
+        ]
+    },{
+        "name":"Alignment",
+        "prefix":"alignment",
+        "category":"game-stats",
+        "function":randomAlignment,
+        "default":false,
+        "includes-settings":true,
+        "settings-label":"Alignment",
+        "settings-options": [
+            {
+                "name":"Classic",
+                "code":"classic",
+                "description":"Traditional D&D alignment, on a scale of Good-Evil and Lawful-Chaotic."
+            },{
+                "name":"Relative to Party",
+                "code":"relative",
+                "description":"Generates whether the NPC is friendly, neutral, or hostile towards the party."
+            },
+        ]
     },{
         "name":"Class",
         "prefix":"charclass",
@@ -495,11 +597,19 @@ const generators = [
         "includes-settings":false
     },
     {
+        "name":"Current Health",
+        "prefix":"damage",
+        "category":"when-you-meet-them",
+        "function":randomDamage,
+        "default":false,
+        "includes-settings":false
+    },
+    {
         "name":"Pocket Contents",
         "prefix":"pocket",
         "category":"when-you-meet-them",
         "function":randomPocket,
-        "default":true,
+        "default":false,
         "includes-settings":true,
         "settings-label":"Pocket Contents",
         "settings-options": [

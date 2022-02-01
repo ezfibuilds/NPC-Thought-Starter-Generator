@@ -12,6 +12,7 @@
 - Ability Scores
 - Moods
 - Weapons
+- Alignment
 
 */
 
@@ -78,9 +79,6 @@ const clothing = [
     'Battle-ready'
 ]
 
-const backgrounds = [
-'Acolyte','Anthropologist','Archeologist','Athlete','Charlatan','City Watch','Courtier','Criminal','Spy','Entertainer','Faction Agent','Far Traveler','Folk Hero','Gladiator','Haunted One','Hermit','Inheritor','Investigator','Knight','Noble','Outlander','Pirate','Sage','Sailor','Soldier','Urban Bounty Hunter','Urchin'
-]
 
 const values = [
     'Money',
@@ -375,5 +373,26 @@ const astrologySigns = [
     'Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn','Aquarius','Pisces'
 ]
 
+const alignmentClassic = [
+    'Lawful Good','Neutral Good','Chaotic Good','Lawful Neutral','True Neutral','Chaotic Neutral','Lawful Evil','Neutral Evil','Chaotic Evil'
+]
 
+const alignmentRelative = [
+    "Very friendly towards the party",
+    "Friendly towards the party",
+    "Somewhat friendly towards the party",
+    "Very hostile towards the party",
+    "Hostile towards the party",
+    "Somewhat hostile towards the party",
+    "Indifferent towards the party",
+    "Indifferent towards the party",
+    "Indifferent towards the party"
+];
 
+const damage = [
+    "Uninjured",
+    "Barely injured",
+    "Injured",
+    "Badly injured",
+    "Near death"
+]

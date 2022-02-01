@@ -300,6 +300,13 @@
     #inspiration button {
         position:absolute;
         top:10px;
+    }
+
+    #inspiration .small-reroll {
+        left:20px;
+    }
+
+    #inspiration .small-lock {
         right:20px;
     }
     
@@ -373,14 +380,54 @@
         background-size:contain;
         background-position: center;
         background-repeat:no-repeat;
+        cursor:pointer;
         margin:5px 10px 5px 0px;
-        color:blue;
         opacity:0.5;
         border:none;
     }
     
     .small-reroll:hover {
         opacity:1;
+    }
+
+
+    .small-lock {
+        height:14px;
+        width:14px;
+        display:inline-block;
+        border:none;
+        cursor:pointer;
+        background: url(images/unlock.svg);
+        background-size:contain;
+        background-position: center;
+        background-repeat:no-repeat;
+    }
+
+    .small-lock.locked {
+        background: url(images/lock.svg);
+        background-size:contain;
+        background-position: bottom;
+        background-repeat:no-repeat;
+        opacity:0.5
+    }
+    .small-lock.unlocked {
+        background: url(images/unlock.svg);
+        background-size:contain;
+        background-position: bottom;
+        background-repeat:no-repeat;
+        opacity:0.25;
+    }
+
+    .small-lock.unlocked:hover {
+        opacity:0.5;
+    }
+
+    #animal-image {
+        min-height:210px;
+    }
+
+    #tarot-image {
+        min-height:310px;
     }
     
     #animal-image img {
@@ -552,6 +599,10 @@
 
     .formhelp {
         margin-top:0px;
+    }
+
+    .setting-actions {
+        grid-column:1 / span 2;
     }
 
     #settings {

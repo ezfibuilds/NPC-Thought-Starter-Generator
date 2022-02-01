@@ -11,9 +11,6 @@
     </head>
 <body>
     
-    
-    
-    
     <div id="credit">
         <h4>Created by <a href="https://www.tiktok.com/@ezfii">@ezfii</a></h4>
         <div id="links">
@@ -58,6 +55,7 @@
             <div id="actions">
                 <button class="secondary" onclick="generateCharNew()">Generate Another</button>
                 <button id="export-text" class="secondary" onclick="exportText()">Export Text</button>
+                <button id="unlock-all" class="secondary hide" onclick="unlockAll()">Unlock All</button>
             </div>
 
 
@@ -67,6 +65,10 @@
         </div>
 
         <div id="settings">
+            <div id="settingactionstop" class="setting-actions">
+                <button class="secondary" onclick="batchSelect('checked')">Select All</button>
+                <button class="secondary" onclick="batchSelect('')">Select None</button>
+            </div>
             <div id="already-know">
                 <div class="checkboxes" id="checkbox-container">
 
@@ -78,6 +80,9 @@
             <div id="weight-settings">
                 
                 
+            </div>
+            <div id="bottomgenerate" class="setting-actions">
+                <button class="primary" onclick="generateCharNew();">Generate</button>
             </div>
         </div>
         
@@ -136,7 +141,9 @@
         <div class="close" id="close-cw" onclick="closeModal('attributions')">×</div>
         <h2>Attributions</h2>
         <p>Names in the first name generator are from the <a href="http://eakett.ca/sgnp/" target="_blank">Story Games Names Project</a> (Creative Commons Attribution-NonCommercial-ShareAlike 2.5 Generic License).
-        <br><br>Animal images taken from Wikipedia, and are all under a Creative Commons license or are public domain. <a href="attributions.html" target="_blank">View All Attributions</a></p>
+        <br><br>Animal images taken from Wikipedia, and are all under a Creative Commons license or are public domain. <a href="attributions.html" target="_blank">View All Attributions</a>
+        <br><br>Lock and Unlock Icons by Creative Stall from NounProject.com
+        <br><br>Medieval professions sourced from the <a href="https://midnight-wolf.fandom.com/wiki/Fantasy/Medieval_Character_Jobs_or_Occupations" target="_blank">Midnight Wolf Wiki</a></p>
 
     </div>
 
@@ -170,6 +177,7 @@
     <script type="text/javascript" src="generator-data/mentalconditions.js"></script>
     <script type="text/javascript" src="generator-data/tarot.js"></script>
     <script type="text/javascript" src="generator-data/hometown.js"></script>
+    <script type="text/javascript" src="generator-data/professions.js"></script>
 
 <script>
     

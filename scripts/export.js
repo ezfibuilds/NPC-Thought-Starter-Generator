@@ -35,6 +35,9 @@ function exportText() {
             if (pre == "element") {
                 toAdd[1] += " " + document.getElementById("element-description").innerHTML;
             }
+            if (pre == "tarot") {
+                toAdd[1] += " (" + document.getElementById("tarot-description").innerHTML + ")";
+            }
             toGen[category].push(toAdd);
             if (e["child-generators"] !== undefined) {
                 e["child-generators"].forEach(c => {

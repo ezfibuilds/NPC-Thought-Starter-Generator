@@ -20,7 +20,8 @@ let optionsList = [];
             optionEventListener(e);
         });
         writeResultsTemplate();
-        writeRerollEventListeners()
+        writeRerollEventListeners();
+        writeLockEventListeners();
     });
 
     function sortGeneratorsByCategory(g) {
@@ -100,6 +101,7 @@ let optionsList = [];
             }
             inspoHTML += `<p class='attribution' id='${pre}-attribution'></p>
                             <button class="small-reroll" id="${pre}-reroll"></button>
+                            <button class="small-lock unlocked" id="${pre}-lock"></button>
                             </div>` 
         });
         document.getElementById('inspiration').innerHTML = inspoHTML;
@@ -116,6 +118,7 @@ let optionsList = [];
                     specificsHTML += `<div id="${pre}-container" class="result-container">
                                         <button id="${pre}-reroll" class="small-reroll"></button>
                                         <div class="result-text">${titleCase(name)}: <span id="${pre}"></span>
+                                        <button class="small-lock unlocked" id="${pre}-lock"></button>
                                         </div>
                                         </div>`
                     if (typeof children !== 'undefined') {
@@ -157,6 +160,12 @@ function writeRerollEventListeners() {
                 document.getElementById(c["prefix"] + "-reroll").addEventListener("click", c["function"]);
             });
         }
+    });
+}
+
+function writeLockEventListeners() {
+    generators.forEach(e => {
+        document.getElementById(e["prefix"] + "-lock").addEventListener("click", () => {toggleLock(e["prefix"])});
     });
 }
 
@@ -223,20 +232,80 @@ function generateCharNew() {
             document.getElementById(key).classList.remove("hide");
         }
     }
+
+    document.getElementById("generate").scrollIntoView({behavior:"smooth",block:"start",inline:"nearest"});
 }
 
 
 function showHideOptions(keyword) {
     let checkbox = document.getElementById(keyword + "-check");
     let selectMenu = document.getElementById(keyword + "-prob-container");
-    if (checkbox.checked) {
-        selectMenu.classList.add("show");
-        selectMenu.classList.remove("hide");
-    } else {
-        selectMenu.classList.add("hide");
-        selectMenu.classList.remove("show");
+    if (typeof(selectMenu) != 'undefined' && selectMenu != null) {
+        if (checkbox.checked) {
+            selectMenu.classList.add("show");
+            selectMenu.classList.remove("hide");
+        } else {
+            selectMenu.classList.add("hide");
+            selectMenu.classList.remove("show");
+        }
     }
 }
+
+
+function toggleLock(pre) {
+    let button = document.getElementById(pre + "-lock");
+    let anyLocked = false;
+
+    if (button.classList.contains("locked")) {
+        button.classList.add("unlocked");
+        button.classList.remove("locked");
+
+        let locks = document.getElementsByClassName("small-lock");
+        for (let i = 0; i < locks.length; i++) {
+            if (locks[i].classList.contains("locked")) {
+                anyLocked = true;
+                break;
+            }
+        }
+
+    } else {
+        button.classList.add("locked");
+        button.classList.remove("unlocked");
+        anyLocked = true;
+    }
+
+    if (anyLocked && document.getElementById("unlock-all").classList.contains("hide")) {
+        document.getElementById("unlock-all").classList.remove("hide");
+    } else if (!anyLocked && !document.getElementById("unlock-all").classList.contains("hide")) {
+        document.getElementById("unlock-all").classList.add("hide");
+    }
+
+}
+
+function unlockAll() {
+    let locks = document.getElementsByClassName("small-lock");
+    for (let i = 0; i < locks.length; i++) {
+        if(locks[i].classList.contains("locked")) {
+            locks[i].classList.add("unlocked");
+            locks[i].classList.remove("locked");
+        }
+    }
+    document.getElementById("unlock-all").classList.add("hide");
+
+}
+
+
+function batchSelect(c) {
+    let inputs = document.getElementsByTagName("input");
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].type == "checkbox") {
+            inputs[i].checked = c;
+            let keyword = inputs[i].value;
+            showHideOptions(keyword);
+        }
+    }
+}
+
 
 
 document.getElementById("generate").addEventListener("click", generateCharNew);
@@ -403,6 +472,12 @@ function checkToGenerate(category) {
                 childcontainer.classList.remove("hide");
             });
         }
+        if (document.getElementById(category + "-lock").classList.contains("locked")) {
+            return false;
+        } else {
+            return true;
+        }
+        
         return true;
     }
 }
@@ -577,7 +652,12 @@ function randomDisability() {
         return;
     }
     let disability;
-    if (Math.random() < 0.9) {
+    let disChance;
+
+    disChance = parseInt(weightSettings["disability"]) / 100;
+
+    
+    if (Math.random() > disChance) {
         disability = ['None','',''];
     } else {
         disability = randomItemWithDesc(disabilities);
@@ -628,6 +708,26 @@ function randomReligion() {
     document.getElementById("religion").textContent = result
 }
 
+// Random amount of wealth. 60% chance of expected wealth, simple list for other options. 
+function randomWealth() {
+    if (!checkToGenerate("wealth")) {
+        return;
+    }
+    if (Math.random() < 0.6) {
+        document.getElementById("wealth").textContent = "As wealthy as you would expect";
+    } else {
+    
+    document.getElementById("wealth").textContent = randomFromArray(wealth, false);
+    }
+}
+
+
+/*function randomProfession() {
+    if (!checkToGenerate("profession")) {
+        return;
+    }
+    document.getElementById("profession").textContent = randomFromArray(simpleProfessions); 
+}*/
 
 
 //
@@ -752,7 +852,11 @@ function randomMentalCondition() {
         return;
     }
     let condition;
-    if (Math.random() < 0.9) {
+    let mentalChance;
+
+    mentalChance = parseInt(weightSettings["mentalcondition"]) / 100;
+
+    if (Math.random() > mentalChance) {
         condition = ['None','',''];
     } else {
         condition = randomItemWithDesc(mentalConditions);
@@ -775,22 +879,33 @@ function randomPersonality() {
     }
     let result = "";
     let personalitymode = weightSettings["personality"];
-    if (personalitymode == "traitssimple") {
-        result = `${randomItem(positivePersonality)} and ${randomItem(negativePersonality)}`
-    } else if (personalitymode == "traitsexpanded") {
-        result = `${randomItem(positivePersonality)}, ${randomItem(positivePersonality)} and ${randomItem(neutralPersonality)}, but ${randomItem(negativePersonality)} and ${randomItem(negativePersonality)}`
-    } else if (personalitymode == "big5") {
-        result = randomBigFive();
-    } else if (personalitymode == "mbti") {
-        result = randomMBTIReturned();
-    } else if (personalitymode == "ennesimple") {
-        result = randomEnneSimple();
-    } else if (personalitymode == "ennetritype") {
-        result = randomEnneTritype();
-    } else if (personalitymode == "astrologysimple") {
-        result = randomAstrologySimple();
-    } else if (personalitymode == "astrologycomplex") {
-        result = randomAstrologyComplex();
+    switch (personalitymode) {
+        case "traitssimple":
+            result = `${randomItem(positivePersonality)} and ${randomItem(negativePersonality)}`
+            break;
+        case "traitsexpanded": 
+            result = `${randomItem(positivePersonality)}, ${randomItem(positivePersonality)} and ${randomItem(neutralPersonality)}, but ${randomItem(negativePersonality)} and ${randomItem(negativePersonality)}`
+            break;
+        case "big5":
+            result = randomBigFive();
+            break;
+        case "mbti":
+            result = randomMBTIReturned();
+            break;
+        case "ennesimple":
+            result = randomEnneSimple();
+            break;
+        case  "ennetritype":
+            result = randomEnneTritype();
+            break;
+        case "astrologysimple":
+            result = randomAstrologySimple();
+            break;
+        case "astrologycomplex":
+            result = randomAstrologyComplex();
+            break;
+        default:
+            console.log("Personality Mode Error");
     }
 
     document.getElementById("personality").innerHTML = result;
@@ -879,7 +994,24 @@ function randomBackground() {
     if (!checkToGenerate("background")) {
         return;
     }
-    document.getElementById("background").textContent = randomFromArray(backgrounds);
+    let mode = weightSettings["background"]
+    let result;
+    if (mode == "professions") {
+        result = randomFromArray(simpleProfessions)
+    } else {
+        let categoryArray = [];
+        backgrounds.forEach(item => {
+            if (item.category == mode || item.category == "phb") {
+                let toAdd = item.name;
+                if (item.variations) {
+                    toAdd += ` (${randomFromArray(item.variations)})`
+                }
+                categoryArray.push(toAdd);
+            }
+        });
+        result = randomFromArray(categoryArray);
+    }
+    document.getElementById("background").textContent = result;
 }
 
 // Random class and subclass. Weighted with variations.
@@ -889,6 +1021,26 @@ function randomClass() {
     }
     let charclass = randomItemWeighted(charclasses,weightSettings["charclass"]);
     document.getElementById("charclass").textContent = charclass //Name
+}
+
+function randomAlignment() {
+    if (!checkToGenerate("alignment")) {
+        return;
+    }
+    let a;
+    let type = weightSettings["alignment"];
+    switch (type) {
+        case "classic":
+            a = randomFromArray(alignmentClassic);
+            break;
+        case "relative":
+            a = randomFromArray(alignmentRelative);
+            break;
+        default: 
+        console.log("Invalid weight settings for alignment.");
+        a = randomFromArray(alignmentClassic);
+    }
+    document.getElementById("alignment").textContent = a;
 }
 
 // Random character level. Relative, 60% chance of being expected level. 
@@ -1009,21 +1161,9 @@ function randomAbilityScores() {
 
 
 //
-// BELONGINGS GENERATORS
+// WHEN YOU MEET THEM
 //
 
-// Random amount of wealth. 60% chance of expected wealth, simple list for other options. 
-function randomWealth() {
-    if (!checkToGenerate("wealth")) {
-        return;
-    }
-    if (Math.random() < 0.6) {
-        document.getElementById("wealth").textContent = "As wealthy as you would expect";
-    } else {
-    
-    document.getElementById("wealth").textContent = randomFromArray(wealth, false);
-    }
-}
 
 
 // Random pocket contents. Generates 1 to 3 items. 
@@ -1039,14 +1179,23 @@ function randomPocket() {
     document.getElementById("pocket").innerHTML = "<ul>" + result + "</ul>";
 }
 
+function randomDamage() {
+    if (!checkToGenerate("damage")) {
+        return;
+    }
+    let dmg = randomFromArray(damage);
+    if (Math.random() > 0.3) {
+        dmg += randomFromArray([", and has a condition",", and under a spell",", and in immediate danger"])
+    }
+    document.getElementById("damage").textContent = dmg;
+}
 
 
 
 
 
 
-
-
+/*
 
 function showHideOptions(keyword) {
     let checkbox = document.getElementById(keyword + "-check");
@@ -1060,5 +1209,7 @@ function showHideOptions(keyword) {
     }
 }
 
+*/
 
-document.getElementById("generate").addEventListener("click", generateCharNew);
+
+//document.getElementById("generate").addEventListener("click", generateCharNew);
